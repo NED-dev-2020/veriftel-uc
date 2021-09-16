@@ -1,1 +1,0 @@
-web: gunicorn num_local.wsgi
