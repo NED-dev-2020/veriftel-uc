@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>VerifTel - UC</title>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="{% static '' %}vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="{% static '' %}css/util.css">
+
+	<link rel="stylesheet" type="text/css" href="{% static '' %}css/main.css">
+
+</head>
+
+<body style="background-color: #666666;">
+
+	
+
+	<div class="limiter">
+
+		<div class="container-login100">
+
+			<div class="wrap-login100">
+
+				<form class="login100-form validate-form" method='POST'>
+				{% csrf_token %}
+
+					<span class="login100-form-title p-b-43">
+
+					VerifTel - UC
+
+					</span>
+
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+
+						<input class="input100" type="text" name="num" required>
+
+						<span class="focus-input100"></span>
+
+						<span class="label-input100">Entrez un numero de téléphone</span>
+
+					</div>
+
+
+			
+					<div class="container-login100-form-btn">
+
+						<button type='submit' class="login100-form-btn">
+							info sur le numero
+						</button>
+
+					</div>
+
+					
+
+					<div class="text-center p-t-46 p-b-20 mt-5">
+
+						<span class="txt2">
+
+							copyright&copy;2021 - By Universe Code
+
+						</span>
+
+					</div>
+
+
+
+					<div class="login100-form-social flex-c-m">
+					
+					<a href="https://wa.me/242067027492" class="login100-form-social-item flex-c-m bg-success m-r-5" target="_blank">
+
+							<i class="fa fa-whatsapp" aria-hidden="true"></i>
+
+						</a>
+						
+						<a href="https://www.instagram.com/universecode2.0/" class="login100-form-social-item flex-c-m bg3 m-r-5" target="_blank">
+
+							<i class="fa fa-instagram" aria-hidden="true"></i>
+
+						</a>
+						
+						
+						
+
+						<a href="https://www.facebook.com/universecode2.0" class="login100-form-social-item flex-c-m bg1 m-r-5" target="_blank">
+
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+
+						</a>
+						
+						<a href="https://www.youtube.com/channel/UCHjmTsz5wcvNdQd5QN9eHHQ" class="login100-form-social-item flex-c-m bg3 m-r-5" target="_blank">
+
+							<i class="fa fa-youtube" aria-hidden="true"></i>
+
+						</a>
+
+
+						
+
+					</div>
+
+				</form>
+
+
+
+				<div class="login100-more" style="background-image: url('{% static '' %}images/bg-01.jpg');">
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+
+
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+
+	<script src="vendor/bootstrap/js/popper.js"></script>
+
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="vendor/select2/select2.min.js"></script>
+
+	<script src="{% static '' %}vendor/daterangepicker/moment.min.js"></script>
+
+	<script src="{% static '' %}vendor/daterangepicker/daterangepicker.js"></script>
+
+	<script src="{% static '' %}vendor/countdowntime/countdowntime.js"></script>
+
+	<script src="{% static '' %}js/main.js"></script>
+
+	
+	
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	
+	
+	{% if messages %}
+		{% for message in messages %}
+
+			{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+				<script>
+					Swal.fire({
+				    icon: 'error',
+				    title: 'Oups !',
+				    text: "{{message}}",
+				    width: '85%',
+				    });
+				</script>
+			{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+				<script>
+					Swal.fire({
+				    icon: 'success',
+				    title: 'Trouvé !',
+				    text: "{{message}}",
+				    width: '85%',
+				    });
+				</script>
+			{% endif %}
+
+		{% endfor %}
+	{% else %}
+	
+	<script>
+		Swal.fire({
+	    icon: 'warning',
+	    title: 'VerifTel - UC',
+	    text: "Trouvons le réseau et le pays de n'importe quel numéro de téléphone de votre choix",
+	    width: '85%',
+	    });
+	</script>
+	{% endif %}
+
+
+</body>
+
+</html>
